@@ -32,7 +32,9 @@ function App() {
 */}
 
 const [ isLoginPage,setisLoginPage]=useState(true)
-
+const onClick=(e)=>{
+e.preventDefault()
+}
   return (
 
     <div className="App">
@@ -44,14 +46,18 @@ const [ isLoginPage,setisLoginPage]=useState(true)
 {
   isLoginPage ?
   (<div>
-   <Register/>
-   <input type="button" className="btn btn-light position-absolute top-100 start-50 translate-middle" value="I have an account" onClick={()=>{setisLoginPage(false)}}/>
+   <Register onClick={()=>{
+     
+     setisLoginPage(false)
+    }} />
+   <input type="button" onClick={()=>{
+     setisLoginPage(false)
+   }} />
 
   </div>):
   (
     <>
-    <Login/>
-<input type="button" className="btn btn-light position-absolute top-100 start-50 translate-middle" value="Create an account" onClick={()=>{setisLoginPage(true)}}/>
+    <Login onClick={()=>{setisLoginPage(true)}}/>
 
     </>
   )
